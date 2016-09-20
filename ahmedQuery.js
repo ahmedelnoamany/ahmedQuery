@@ -26,7 +26,7 @@ ahmedQuery.prototype.each = function(callback, context){
   return this; //Allows chaining this function
 }
 
-//Get attributes
+//Get, set attributes
 ahmedQuery.prototype.attr = function(attribute){
   if(attribute === 'class'){
     attribute = 'className';
@@ -40,6 +40,14 @@ ahmedQuery.prototype.attr = function(attribute){
   }
 }
   return undefined;  //if attribute doesnt exist, returns undefined
+}
+
+//Event listening
+ahmedQuery.prototype.on = function(eventName, callback){
+  this.each(function(target){  //using above .each
+    target.addEventListener(eventName, callback, false);  //adds a listener to every element returned in query
+  });
+  return this;
 }
 
 window.ahmedQuery = ahmedQuery;
