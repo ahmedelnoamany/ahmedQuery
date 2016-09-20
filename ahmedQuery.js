@@ -18,6 +18,14 @@ this.length = nodes.length;
 
 return this;
 
+//high order for-loop function
+ahmedQuery.prototype.each = function(callback, context){
+  for (var i = 0; i< this.length; i++){
+    callback.call(context || this, this[i], i, this);  //context sets default as this
+  }
+  return this; //Allows chaining this function
+}
+
 window.ahmedQuery = ahmedQuery;
 window.$ = ahmedQuery;
 })()
