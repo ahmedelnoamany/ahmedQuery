@@ -43,9 +43,17 @@ ahmedQuery.prototype.attr = function(attribute){
 }
 
 //Event listening
+//adding a listener
 ahmedQuery.prototype.on = function(eventName, callback){
   this.each(function(target){  //using above .each
     target.addEventListener(eventName, callback, false);  //adds a listener to every element returned in query
+  });
+  return this;
+}
+//removing a listener
+ahmedQuery.prototype.off = function(eventName, callback){
+  this.each(function(target){  //using above .each
+    target.removeEventListener(eventName, callback, false); //removes listener
   });
   return this;
 }
