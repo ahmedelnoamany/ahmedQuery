@@ -26,6 +26,22 @@ ahmedQuery.prototype.each = function(callback, context){
   return this; //Allows chaining this function
 }
 
+//Get attributes
+ahmedQuery.prototype.attr = function(attribute){
+  if(attribute === 'class'){
+    attribute = 'className';
+  }
+  if(this[0]){
+    if(value){
+    this[0][attribute] = value; //setting attribute value
+    return this;
+  }else{
+      return this[0][attribute];  //returning value of attribute of first element.
+  }
+}
+  return undefined;  //if attribute doesnt exist, returns undefined
+}
+
 window.ahmedQuery = ahmedQuery;
 window.$ = ahmedQuery;
 })()
